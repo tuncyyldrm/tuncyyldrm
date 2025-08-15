@@ -61,7 +61,7 @@ body {
   align-items: center;
   background: linear-gradient(135deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
   background-size: 400% 400%;
-  animation: gradientAnim 12s ease infinite;
+  animation: gradientAnim 10s ease infinite;
   font-family: 'Segoe UI', sans-serif;
 }
 
@@ -85,28 +85,13 @@ body {
   color: #fff;
   box-shadow: 0 0 25px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.1) inset;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
+  margin: auto 5%;
 }
 .kartvizit:hover {
   transform: scale(1.05);
   box-shadow: 0 0 50px rgba(255,255,255,0.4), 0 0 15px rgba(255,255,255,0.2) inset;
 }
 
-/* === Shine Effect (sürekli) === */
-.kartvizit::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-  transform: skewX(-25deg);
-  animation: shine 4s linear infinite;
-}
-@keyframes shine {
-  0% {left: -75%;}
-  100% {left: 125%;}
-}
 
 /* === Profil Resmi === */
 .profil-resmi {
