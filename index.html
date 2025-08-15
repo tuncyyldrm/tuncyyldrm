@@ -1,223 +1,221 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-	<!-- Viewport meta etiketini güncelleyin -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
-		<!-- Mobil dokunmatik özellikleri -->
-	<meta name="theme-color" content="#ffffff">
-	<link rel="sitemap" type="application/xml" href="https://tuncyyldrm.vercel.app/sitemap.xml">
-    <script>
-        // Sayfa URL'sini al
-        let pageUrl = window.location.href;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, shrink-to-fit=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="vB3lF9Mjzy_LSHBAifsiOoLzjR9-Q0SWXGzSOKVlXCw" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
-        // Canonical link etiketini bul ve güncelle
-        let canonicalLink = document.querySelector('link[rel="canonical"]');
-        if (canonicalLink) {
-            canonicalLink.setAttribute('href', pageUrl);
-        } else {
-            // Canonical link yoksa, yeni bir tane ekle
-            let newCanonical = document.createElement('link');
-            newCanonical.setAttribute('rel', 'canonical');
-            newCanonical.setAttribute('href', pageUrl);
-            document.head.appendChild(newCanonical);
-        }
-    </script>
-	<meta name="google-site-verification" content="vB3lF9Mjzy_LSHBAifsiOoLzjR9-Q0SWXGzSOKVlXCw" />
-	<meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <!-- SEO -->
+  <meta name="description" content="Tuncay Yıldırım - Modern web uygulamaları, grafik tasarım, 3D baskı ve veri filtreleme çözümleri. Kullanıcı dostu ve işlevsel projeler.">
+  <meta name="keywords" content="web tasarım, 3D baskı, grafik tasarım, web geliştirme, veri filtreleme, SEO, Node.js, JavaScript, PHP">
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
-	<!-- Mevcut meta etiketlerin güncellenmiş hali -->
-    <meta name="description" content="Tuncay Yıldırım'ın portföyü; modern web uygulamaları, grafik tasarım, 3D baskı projeleri ve veri filtreleme sistemleri üzerine uzmanlaşmış bir profesyonelin sunduğu yaratıcı çözümler.">
-    <meta name="keywords" content="web tasarımı, 3D baskı, grafik tasarım, web geliştirme, kullanıcı dostu projeler, veri filtreleme, SEO, Node.js, JavaScript, PHP">
+  <!-- Konum Bilgisi -->
+  <meta name="geo.region" content="TR-32" />
+  <meta name="geo.placename" content="Isparta" />
+  <meta name="geo.position" content="37.756470;30.566073" />
+  <meta name="ICBM" content="37.756470, 30.566073" />
 
-    <!-- Yeni eklenen meta etiketler -->
-    <meta name="geo.region" content="TR-32" />
-    <meta name="geo.placename" content="Isparta" />
-    <meta name="geo.position" content="37.756470; 30.566073" />
-    <meta name="ICBM" content="37.756470, 30.566073" />
-    
-    <meta name="author" content="Tuncay Yıldırım">  
-    <meta name="publisher" content="Tuncay Yıldırım">
-    <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- Yazar -->
+  <meta name="author" content="Tuncay Yıldırım">
+  <meta name="publisher" content="Tuncay Yıldırım">
 
-    <link rel="icon" type="image/jpeg" href="/profil.jpg">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tuncyyldrm.vercel.app/">
+  <meta property="og:title" content="Tuncay Yıldırım - Web, Tasarım, 3D Baskı">
+  <meta property="og:description" content="Modern web uygulamaları, grafik tasarım, 3D baskı çözümleri.">
+  <meta property="og:image" content="https://tuncyyldrm.vercel.app/profil.jpg">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tuncyyldrm.vercel.app/">
-    <meta property="og:title" content="Tuncay Yıldırım - Modern web uygulamaları, grafik tasarım, veri filtreleme ve geliştirme sistemleri. Kullanıcı dostu ve işlevsel projeler üretmeye odaklı projeler.">
-    <meta property="og:description" content="Yaratıcı ve işlevsel projeler için uzmanlık: Web tasarımı, grafik tasarım ve 3D baskı çözümleri.">
-    <meta property="og:image" content="/profil.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tuncay Yıldırım - Web, Tasarım, 3D Baskı">
+  <meta name="twitter:description" content="Modern web uygulamaları, grafik tasarım, 3D baskı çözümleri.">
+  <meta name="twitter:image" content="https://tuncyyldrm.vercel.app/profil.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tuncyyldrm.vercel.app/">
-    <meta property="twitter:title" content="Tuncay Yıldırım - Modern web uygulamaları, grafik tasarım, veri filtreleme ve geliştirme sistemleri. Kullanıcı dostu ve işlevsel projeler üretmeye odaklı projeler.">
-    <meta property="twitter:description" content="Yaratıcı ve işlevsel projeler için uzmanlık: Web tasarımı, grafik tasarım ve 3D baskı çözümleri.">
-    <meta property="twitter:image" content="/profil.jpg">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://tuncyyldrm.vercel.app/">
 
-    <title>Tuncay Yıldırım - Modern web uygulamaları, grafik tasarım, veri filtreleme ve geliştirme sistemleri. Kullanıcı dostu ve işlevsel projeler üretmeye odaklı projeler.</title>
-    
-    <!-- Preload önemli kaynaklar -->
-    <link rel="preload" href="/profil.jpg" as="image">
-    <link rel="preconnect" href="https://sheets.googleapis.com">
-    <link rel="dns-prefetch" href="https://sheets.googleapis.com">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/profil.jpg">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HL793TN6RE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Preload & Prefetch -->
+  <link rel="preload" href="/profil.jpg" as="image">
+  <link rel="preconnect" href="https://sheets.googleapis.com">
+  <link rel="dns-prefetch" href="https://sheets.googleapis.com">
 
-  gtag('config', 'G-HL793TN6RE');
-</script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
 
+  <title>Tuncay Yıldırım - Web, Tasarım, 3D Baskı</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #eaeaea;
-      margin: 0;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .kartvizit {
-      background-color: #fff;
-      width: 300px;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: auto;
-      text-align: center;
-      margin-top: 60px;
-      /* Responsive width adjustment */
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-    .profil-resmi {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #007bff;
-    }
-    .kartvizit h1 {
-      margin: 10px 0 5px;
-      font-size: 22px;
-      color: #333;
-    }
-    .kartvizit p {
-      margin: 5px 0;
-      font-size: 15px;
-      color: #555;
-    }
-    .etiket {
-      background-color: #007bff;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 20px;
-      display: inline-block;
-      margin: 5px 5px 0;
-      font-size: 13px;
-    }
-    .ikon {
-      color: #007bff;
-      font-size: 22px;
-      margin: 10px 8px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .ikon:hover {
-      color: #0056b3;
-    }
-    .ygt {
-      width: 100%;
-      margin-top: 15px;
-      border-radius: 6px;
-      transition: transform 0.3s;
-    }
-    .ygt:hover {
-      transform: scale(1.03);
-    }
+/* === Genel Sayfa Stili === */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+  background-size: 400% 400%;
+  animation: gradientAnim 12s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    /* Responsive design: adjust layout for smaller devices */
-    @media (max-width: 768px) {
-      .kartvizit {
-        width: 80%;
-        margin-top: 20px;
-      }
-      .profil-resmi {
-        width: 100px;
-        height: 100px;
-      }
-      .kartvizit h1 {
-        font-size: 20px;
-      }
-      .kartvizit p {
-        font-size: 14px;
-      }
-      .ikon {
-        font-size: 20px;
-      }
-    }
+/* Arka plan gradient hareketi */
+@keyframes gradientAnim {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 
-    /* Mobile design */
-    @media (max-width: 480px) {
-      .kartvizit {
-        width: 90%;
-        padding: 15px;
-      }
-      .profil-resmi {
-        width: 90px;
-        height: 90px;
-      }
-      .kartvizit h1 {
-        font-size: 18px;
-      }
-      .kartvizit p {
-        font-size: 13px;
-      }
-      .ikon {
-        font-size: 18px;
-        margin: 8px;
-      }
-    }
-	</style>
+/* === Kartvizit === */
+.kartvizit {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  text-align: center;
+  width: 350px;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.1) inset;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.kartvizit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255,255,255,0.4), 0 0 15px rgba(255,255,255,0.2) inset;
+}
+
+/* === Shine Effect (sürekli) === */
+.kartvizit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-25deg);
+  animation: shine 4s linear infinite;
+}
+@keyframes shine {
+  0% {left: -75%;}
+  100% {left: 125%;}
+}
+
+/* === Profil Resmi === */
+.profil-resmi {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.6);
+  margin-bottom: 15px;
+  animation: fadeInScale 0.8s ease forwards;
+}
+
+/* === Yazılar ve İkonlar === */
+.kartvizit h1, .kartvizit p, .ikon, .etiket {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Fade-in Sırası */
+.kartvizit h1 { animation-delay: 0.3s; }
+.kartvizit > p:first-of-type { animation-delay: 0.6s; }
+.kartvizit .ikon:nth-child(1) { animation-delay: 0.8s; }
+.kartvizit .ikon:nth-child(2) { animation-delay: 1.0s; }
+.kartvizit .ikon:nth-child(3) { animation-delay: 1.2s; }
+.kartvizit .ikon:nth-child(4) { animation-delay: 1.4s; }
+.kartvizit .ikon:nth-child(5) { animation-delay: 1.6s; }
+.kartvizit .ikon:nth-child(6) { animation-delay: 1.8s; }
+.etiket:nth-child(1) { animation-delay: 2.0s; }
+.etiket:nth-child(2) { animation-delay: 2.1s; }
+.etiket:nth-child(3) { animation-delay: 2.2s; }
+.etiket:nth-child(4) { animation-delay: 2.3s; }
+.etiket:nth-child(5) { animation-delay: 2.4s; }
+.etiket:nth-child(6) { animation-delay: 2.5s; }
+.etiket:nth-child(7) { animation-delay: 2.6s; }
+.etiket:nth-child(8) { animation-delay: 2.7s; }
+.etiket:nth-child(9) { animation-delay: 2.8s; }
+.etiket:nth-child(10) { animation-delay: 2.9s; }
+.etiket:nth-child(11) { animation-delay: 3.0s; }
+
+/* === Animasyonlar === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* === İkonlar === */
+.ikon {
+  display: inline-block;
+  margin: 8px;
+  color: white;
+  font-size: 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.ikon:hover {
+  transform: scale(1.2) rotate(5deg);
+  color: #ffd700;
+}
+
+/* === Etiketler === */
+.etiket {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  margin: 3px;
+  border-radius: 20px;
+  font-size: 12px;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.etiket:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px) scale(1.05);
+}
+  </style>
 </head>
 <body>
-  <div class="kartvizit">
-    <img class="profil-resmi" src="/profil.jpg" alt="Profil Resmi">
-    <h1>Tuncay YILDIRIM</h1>
-    <p>Modern web uygulamaları, grafik tasarım, veri filtreleme ve geliştirme sistemleri. Kullanıcı dostu ve işlevsel projeler üretmeye odaklı projeler.</p>
-    <div>
-      <a target="_blank" href="mailto:tuncyyldrm@gmail.com" class="ikon"><i class="fas fa-envelope"></i></a>
-      <a target="_blank" href="tel:05312084897" class="ikon"><i class="fas fa-phone"></i></a>
-      <a target="_blank" href="https://wa.me/905312084897" class="ikon"><i class="fab fa-whatsapp"></i></a>
-      <a target="_blank" href="https://www.facebook.com/tuncay0yildirim/" class="ikon"><i class="fab fa-facebook"></i></a>
-      <a target="_blank" href="https://www.instagram.com/tuncay0yildirim/" class="ikon"><i class="fab fa-instagram"></i></a>
-      <a target="_blank" href="https://www.x.com/tuncay0yildirim/" class="ikon"><i class="fa-brands fa-x-twitter"></i></a>
-    </div>
-    <p>
-      <span class="etiket">HTML</span>
-      <span class="etiket">CSS</span>
-      <span class="etiket">JavaScript</span>
-      <span class="etiket">Google Apps Script</span>
-      <span class="etiket">Node.js</span>
-      <span class="etiket">SQL</span>
-      <span class="etiket">SQL Server Management Studio</span>
-      <span class="etiket">PHP</span>
-      <span class="etiket">MySQL</span>
-      <span class="etiket">GitHub</span>
-      <span class="etiket">Google Sheets</span>
-      <span class="etiket">Blogger</span>
-      <span class="etiket">Photoshop</span>
-      <span class="etiket">Illustrator</span>
-      <span class="etiket">Grafik Tasarım</span>
-      <span class="etiket">SEO</span>
-      <span class="etiket">3D Modelleme</span>
-    </p>
+
+<div class="kartvizit">
+  <img class="profil-resmi" src="/profil.jpg" alt="Tuncay Yıldırım">
+  <h1>Tuncay YILDIRIM</h1>
+  <p>Modern web uygulamaları, grafik tasarım, veri filtreleme ve geliştirme sistemleri.</p>
+  
+  <div>
+    <a href="mailto:tuncyyldrm@gmail.com" class="ikon"><i class="fas fa-envelope"></i></a>
+    <a href="tel:05312084897" class="ikon"><i class="fas fa-phone"></i></a>
+    <a href="https://wa.me/905312084897" class="ikon"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://facebook.com/tuncay0yildirim" class="ikon"><i class="fab fa-facebook"></i></a>
+    <a href="https://instagram.com/tuncay0yildirim" class="ikon"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/tuncay0yildirim" class="ikon"><i class="fa-brands fa-x-twitter"></i></a>
   </div>
+
+  <p>
+    <span class="etiket">HTML</span>
+    <span class="etiket">CSS</span>
+    <span class="etiket">JavaScript</span>
+    <span class="etiket">Google Apps Script</span>
+    <span class="etiket">Node.js</span>
+    <span class="etiket">PHP</span>
+    <span class="etiket">MySQL</span>
+    <span class="etiket">Photoshop</span>
+    <span class="etiket">Illustrator</span>
+    <span class="etiket">SEO</span>
+    <span class="etiket">3D Modelleme</span>
+  </p>
+</div>
+
 </body>
 </html>
