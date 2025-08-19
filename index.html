@@ -155,20 +155,32 @@ body {
 }
 
 /* === Etiketler === */
+.yetenekler h3 {
+  font-size: 16px;
+  margin: 15px 0 8px;
+  color: #f1f1f1;
+}
+
 .etiket {
   display: inline-block;
-  background: rgba(255,255,255,0.15);
   padding: 6px 12px;
-  margin: 3px;
-  border-radius: 20px;
-  font-size: 12px;
-  backdrop-filter: blur(4px);
-  transition: background 0.3s ease, transform 0.3s ease;
+  margin: 4px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
 }
+
 .etiket:hover {
-  background: rgba(255,255,255,0.3);
   transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }
+
+/* Kategorilere renk ayrımı */
+.uzmanlik { background: #2563eb; }  /* Mavi: Ana uzmanlık */
+.ekstra { background: #9333ea; }    /* Mor: Ekstra beceri */
   </style>
 </head>
 <body>
@@ -187,20 +199,37 @@ body {
     <a href="https://x.com/tuncay0yildirim" class="ikon"><i class="fa-brands fa-x-twitter"></i></a>
   </div>
 
+<div class="yetenekler">
+  <!-- Ana Uzmanlıklar: Web & Yazılım -->
+  <h3>*****</h3>
   <p>
-    <span class="etiket">HTML</span>
-    <span class="etiket">CSS</span>
-    <span class="etiket">JavaScript</span>
-    <span class="etiket">Google Apps Script</span>
-    <span class="etiket">Node.js</span>
-    <span class="etiket">PHP</span>
-    <span class="etiket">MySQL</span>
-    <span class="etiket">Photoshop</span>
-    <span class="etiket">Illustrator</span>
-    <span class="etiket">SEO</span>
-    <span class="etiket">3D Modelleme</span>
+    <span class="etiket uzmanlik">HTML</span>
+    <span class="etiket uzmanlik">CSS</span>
+    <span class="etiket uzmanlik">JavaScript</span>
+    <span class="etiket uzmanlik">Google Apps Script</span>
+    <span class="etiket uzmanlik">Node.js</span>
+    <span class="etiket uzmanlik">PHP</span>
+    <span class="etiket uzmanlik">MySQL</span>
+    <span class="etiket uzmanlik">SQL</span>
+    <span class="etiket uzmanlik">SQL Server Management Studio</span>
+    <span class="etiket uzmanlik">Google Sheets</span>
+    <span class="etiket uzmanlik">GitHub</span>
   </p>
+
+  <!-- Ekstra Beceriler: Tasarım & SEO & İçerik -->
+  <h3>****</h3>
+  <p>
+    <span class="etiket ekstra">Photoshop</span>
+    <span class="etiket ekstra">Illustrator</span>
+    <span class="etiket ekstra">Grafik Tasarım</span>
+    <span class="etiket ekstra">SEO</span>
+    <span class="etiket ekstra">Blogger</span>
+    <span class="etiket ekstra">3D Modelleme</span>
+  </p>
+</div>
+
 </div>
 
 </body>
 </html>
+
