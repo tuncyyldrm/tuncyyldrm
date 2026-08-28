@@ -2,239 +2,2052 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, shrink-to-fit=no">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="google-site-verification" content="vB3lF9Mjzy_LSHBAifsiOoLzjR9-Q0SWXGzSOKVlXCw" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HL793TN6RE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
-  gtag('config', 'G-HL793TN6RE');
-</script>
-  
-  <!-- SEO -->
-  <meta name="description" content="Tuncay Yıldırım - Modern web uygulamaları, grafik tasarım, 3D baskı ve veri filtreleme çözümleri. Kullanıcı dostu ve işlevsel projeler.">
-  <meta name="keywords" content="web tasarım, 3D baskı, grafik tasarım, web geliştirme, veri filtreleme, SEO, Node.js, JavaScript, PHP">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0b0b0d">
 
-  <!-- Konum Bilgisi -->
-  <meta name="geo.region" content="TR-32" />
-  <meta name="geo.placename" content="Isparta" />
-  <meta name="geo.position" content="37.756470;30.566073" />
-  <meta name="ICBM" content="37.756470, 30.566073" />
+  <title>Tuncay Yıldırım — Premium Digital Business Card</title>
 
-  <!-- Yazar -->
+  <meta
+    name="description"
+    content="Tuncay Yıldırım — Bilgisayar Programcısı, Yazılım Teknik Destek, SQL Veri Tabanı Yönetimi, B2B ve Web Otomasyon Sistemleri."
+  >
+
   <meta name="author" content="Tuncay Yıldırım">
-  <meta name="publisher" content="Tuncay Yıldırım">
+  <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tuncyyldrm.vercel.app/">
-  <meta property="og:title" content="Tuncay Yıldırım - Web, Tasarım, 3D Baskı">
-  <meta property="og:description" content="Modern web uygulamaları, grafik tasarım, 3D baskı çözümleri.">
-  <meta property="og:image" content="https://tuncyyldrm.vercel.app/profil.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tuncay Yıldırım - Web, Tasarım, 3D Baskı">
-  <meta name="twitter:description" content="Modern web uygulamaları, grafik tasarım, 3D baskı çözümleri.">
-  <meta name="twitter:image" content="https://tuncyyldrm.vercel.app/profil.jpg">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://tuncyyldrm.vercel.app/">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="/profil.jpg">
+  <link rel="icon" href="profil.jpg" type="image/jpeg">
 
-  <!-- Preload & Prefetch -->
-  <link rel="preload" href="/profil.jpg" as="image">
-  <link rel="preconnect" href="https://sheets.googleapis.com">
-  <link rel="dns-prefetch" href="https://sheets.googleapis.com">
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:url" content="https://tuncyyldrm.vercel.app/">
+  <meta property="og:title" content="Tuncay Yıldırım — Digital Business Card">
+  <meta
+    property="og:description"
+    content="Yazılım Teknik Destek • SQL • B2B • Web • Otomasyon"
+  >
+  <meta
+    property="og:image"
+    content="https://tuncyyldrm.vercel.app/profil.jpg"
+  >
+  <meta property="profile:first_name" content="Tuncay">
+  <meta property="profile:last_name" content="Yıldırım">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Tuncay Yıldırım — Digital Business Card"
+  >
+  <meta
+    name="twitter:description"
+    content="Yazılım Teknik Destek • SQL • B2B • Web • Otomasyon"
+  >
+  <meta
+    name="twitter:image"
+    content="https://tuncyyldrm.vercel.app/profil.jpg"
+  >
 
-  <title>Tuncay Yıldırım - Web, Tasarım, 3D Baskı</title>
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+
   <style>
-/* === Genel Sayfa Stili === */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
-  background-size: 400% 400%;
-  animation: gradientAnim 10s ease infinite;
-  font-family: 'Segoe UI', sans-serif;
-}
+    /* =========================================================
+       DESIGN SYSTEM
+    ========================================================= */
 
-/* Arka plan gradient hareketi */
-@keyframes gradientAnim {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
+    :root {
+      --bg: #09090b;
+      --bg-secondary: #101012;
 
-/* === Kartvizit === */
-.kartvizit {
-  position: relative;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  text-align: center;
-  width: 350px;
-  overflow: hidden;
-  color: #fff;
-  box-shadow: 0 0 25px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.1) inset;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  margin: auto 5%;
-}
-.kartvizit:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 50px rgba(255,255,255,0.4), 0 0 15px rgba(255,255,255,0.2) inset;
-}
+      --surface: rgba(255, 255, 255, 0.045);
+      --surface-hover: rgba(255, 255, 255, 0.075);
+      --surface-solid: #151517;
 
+      --border: rgba(255, 255, 255, 0.09);
+      --border-strong: rgba(255, 255, 255, 0.15);
 
-/* === Profil Resmi === */
-.profil-resmi {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(255,255,255,0.6);
-  margin-bottom: 15px;
-  animation: fadeInScale 0.8s ease forwards;
-}
+      --text: #f5f5f7;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
 
-/* === Yazılar ve İkonlar === */
-.kartvizit h1, .kartvizit p, .ikon, .etiket {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-}
+      --accent: #ffffff;
+      --accent-text: #09090b;
 
-/* Fade-in Sırası */
-.kartvizit h1 { animation-delay: 0.3s; }
-.kartvizit > p:first-of-type { animation-delay: 0.6s; }
-.kartvizit .ikon:nth-child(1) { animation-delay: 0.8s; }
-.kartvizit .ikon:nth-child(2) { animation-delay: 1.0s; }
-.kartvizit .ikon:nth-child(3) { animation-delay: 1.2s; }
-.kartvizit .ikon:nth-child(4) { animation-delay: 1.4s; }
-.kartvizit .ikon:nth-child(5) { animation-delay: 1.6s; }
-.kartvizit .ikon:nth-child(6) { animation-delay: 1.8s; }
-.etiket:nth-child(1) { animation-delay: 2.0s; }
-.etiket:nth-child(2) { animation-delay: 2.1s; }
-.etiket:nth-child(3) { animation-delay: 2.2s; }
-.etiket:nth-child(4) { animation-delay: 2.3s; }
-.etiket:nth-child(5) { animation-delay: 2.4s; }
-.etiket:nth-child(6) { animation-delay: 2.5s; }
-.etiket:nth-child(7) { animation-delay: 2.6s; }
-.etiket:nth-child(8) { animation-delay: 2.7s; }
-.etiket:nth-child(9) { animation-delay: 2.8s; }
-.etiket:nth-child(10) { animation-delay: 2.9s; }
-.etiket:nth-child(11) { animation-delay: 3.0s; }
+      --success: #34d399;
 
-/* === Animasyonlar === */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
+      --shadow:
+        0 35px 80px rgba(0, 0, 0, 0.45),
+        0 10px 30px rgba(0, 0, 0, 0.2);
 
-/* === İkonlar === */
-.ikon {
-  display: inline-block;
-  margin: 8px;
-  color: white;
-  font-size: 20px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-.ikon:hover {
-  transform: scale(1.2) rotate(5deg);
-  color: #ffd700;
-}
+      --radius-xl: 32px;
+      --radius-lg: 20px;
+      --radius-md: 15px;
+      --radius-sm: 11px;
 
-/* === Etiketler === */
-.yetenekler h3 {
-  font-size: 16px;
-  margin: 15px 0 8px;
-  color: #f1f1f1;
-}
+      --max-width: 560px;
 
-.etiket {
-  display: inline-block;
-  padding: 6px 12px;
-  margin: 4px;
-  border-radius: 16px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #fff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: default;
-}
+      --transition:
+        180ms cubic-bezier(.2,.7,.2,1);
 
-.etiket:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-}
+      color-scheme: dark;
+    }
 
 
+    /* =========================================================
+       LIGHT MODE
+    ========================================================= */
+
+    body.light-mode {
+      --bg: #f4f4f6;
+      --bg-secondary: #ffffff;
+
+      --surface: rgba(0, 0, 0, 0.035);
+      --surface-hover: rgba(0, 0, 0, 0.06);
+      --surface-solid: #ffffff;
+
+      --border: rgba(0, 0, 0, 0.075);
+      --border-strong: rgba(0, 0, 0, 0.13);
+
+      --text: #18181b;
+      --text-secondary: #52525b;
+      --text-muted: #71717a;
+
+      --accent: #18181b;
+      --accent-text: #ffffff;
+
+      --shadow:
+        0 30px 70px rgba(0, 0, 0, 0.12),
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+      color-scheme: light;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(255,255,255,.055),
+          transparent 38%
+        ),
+        var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
+      display: flex;
+      justify-content: center;
+
+      padding:
+        max(18px, env(safe-area-inset-top))
+        16px
+        max(18px, env(safe-area-inset-bottom));
+
+      transition:
+        background .3s ease,
+        color .3s ease;
+    }
+
+
+    /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+    .background-glow {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+
+      top: -180px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255,255,255,.08),
+          transparent 68%
+        );
+
+      filter: blur(30px);
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+    /* =========================================================
+       MAIN CARD
+    ========================================================= */
+
+    .card-wrapper {
+      width: 100%;
+      max-width: var(--max-width);
+
+      margin: auto;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.065),
+          rgba(255,255,255,.025)
+        );
+
+      background-color: var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-xl);
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+
+      overflow: hidden;
+
+      position: relative;
+
+      animation:
+        cardEnter .65s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+
+    .card-wrapper::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.06),
+          transparent 35%
+        );
+
+      opacity: .7;
+    }
+
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+
+      padding: 28px;
+    }
+
+
+    @keyframes cardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 30px;
+    }
+
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 11px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 999px;
+
+      background: var(--surface);
+
+      color: var(--text-secondary);
+
+      font-size: 11px;
+      font-weight: 600;
+
+      letter-spacing: .1px;
+    }
+
+
+    .availability-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--success);
+
+      box-shadow:
+        0 0 0 3px rgba(52,211,153,.09),
+        0 0 12px rgba(52,211,153,.4);
+    }
+
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 50%;
+
+      background: var(--surface);
+
+      color: var(--text-secondary);
+
+      cursor: pointer;
+
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+    }
+
+
+    .icon-button:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+      border-color: var(--border-strong);
+
+      transform: translateY(-1px);
+    }
+
+
+    .icon-button:active {
+      transform: scale(.94);
+    }
+
+
+    .icon-button:focus-visible,
+    .btn:focus-visible,
+    .social-link:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 3px;
+    }
+
+
+    /* =========================================================
+       PROFILE
+    ========================================================= */
+
+    .profile {
+      text-align: center;
+
+      margin-bottom: 27px;
+    }
+
+
+    .avatar-wrapper {
+      width: 100px;
+      height: 100px;
+
+      margin:
+        0 auto 19px;
+
+      padding: 3px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.28),
+          rgba(255,255,255,.04)
+        );
+
+      box-shadow:
+        0 14px 40px rgba(0,0,0,.22);
+    }
+
+
+    .avatar {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border:
+        2px solid var(--bg);
+
+      background: #222;
+    }
+
+
+    .name {
+      color: var(--text);
+
+      font-size: clamp(25px, 6vw, 30px);
+
+      line-height: 1.1;
+
+      font-weight: 750;
+
+      letter-spacing: -.9px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .headline {
+      color: var(--text-secondary);
+
+      font-size: 14px;
+
+      line-height: 1.5;
+
+      font-weight: 500;
+
+      max-width: 390px;
+
+      margin:
+        0 auto 12px;
+    }
+
+
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+
+    .location i {
+      font-size: 11px;
+    }
+
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .intro {
+      text-align: center;
+
+      color: var(--text-secondary);
+
+      font-size: 13px;
+
+      line-height: 1.7;
+
+      max-width: 430px;
+
+      margin:
+        0 auto 25px;
+    }
+
+
+    /* =========================================================
+       MAIN ACTIONS
+    ========================================================= */
+
+    .main-actions {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-bottom: 13px;
+    }
+
+
+    .btn {
+      min-height: 50px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      padding: 0 16px;
+
+      border-radius: var(--radius-md);
+
+      font-size: 13px;
+      font-weight: 650;
+
+      text-decoration: none;
+
+      border:
+        1px solid transparent;
+
+      cursor: pointer;
+
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+    }
+
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+
+    .btn:active {
+      transform: translateY(0) scale(.985);
+    }
+
+
+    .btn-primary {
+      background: var(--accent);
+
+      color: var(--accent-text);
+
+      box-shadow:
+        0 8px 24px rgba(0,0,0,.14);
+    }
+
+
+    .btn-primary:hover {
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.22);
+    }
+
+
+    .btn-secondary {
+      background: var(--surface);
+
+      color: var(--text);
+
+      border-color: var(--border);
+    }
+
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+
+      border-color: var(--border-strong);
+    }
+
+
+    /* =========================================================
+       SECONDARY ACTION
+    ========================================================= */
+
+    .save-contact {
+      width: 100%;
+
+      min-height: 45px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      background: transparent;
+
+      color: var(--text-secondary);
+
+      font-size: 12px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+    }
+
+
+    .save-contact:hover {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+
+
+    /* =========================================================
+       SOCIAL / CONTACT BAR
+    ========================================================= */
+
+    .social-bar {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 8px;
+
+      padding:
+        20px 0;
+
+      margin:
+        24px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+
+    .social-link {
+      min-height: 53px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 7px;
+
+      text-decoration: none;
+
+      border-radius: 13px;
+
+      color: var(--text-muted);
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+    }
+
+
+    .social-link i {
+      font-size: 16px;
+
+      color: var(--text-secondary);
+    }
+
+
+    .social-link span {
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+
+    .social-link:hover {
+      color: var(--text);
+
+      background: var(--surface);
+
+      transform: translateY(-2px);
+    }
+
+
+    .social-link:hover i {
+      color: var(--text);
+    }
+
+
+    /* =========================================================
+       SECTION
+    ========================================================= */
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+
+    .section:last-of-type {
+      margin-bottom: 0;
+    }
+
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 12px;
+    }
+
+
+    .section-title {
+      color: var(--text-muted);
+
+      font-size: 10px;
+
+      font-weight: 750;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.5px;
+    }
+
+
+    .section-line {
+      height: 1px;
+
+      flex: 1;
+
+      margin-left: 12px;
+
+      background:
+        linear-gradient(
+          to right,
+          var(--border),
+          transparent
+        );
+    }
+
+
+    /* =========================================================
+       EXPERTISE GRID
+    ========================================================= */
+
+    .expertise-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 9px;
+    }
+
+
+    .expertise-item {
+      padding: 15px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      background: var(--surface);
+
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+
+    .expertise-item:hover {
+      transform: translateY(-2px);
+
+      background: var(--surface-hover);
+
+      border-color: var(--border-strong);
+    }
+
+
+    .expertise-icon {
+      width: 31px;
+      height: 31px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 11px;
+
+      border-radius: 9px;
+
+      background:
+        rgba(255,255,255,.055);
+
+      color: var(--text-secondary);
+
+      font-size: 13px;
+    }
+
+
+    .expertise-name {
+      color: var(--text);
+
+      font-size: 12px;
+
+      font-weight: 650;
+
+      margin-bottom: 4px;
+    }
+
+
+    .expertise-description {
+      color: var(--text-muted);
+
+      font-size: 10px;
+
+      line-height: 1.45;
+    }
+
+
+    /* =========================================================
+       EXPERIENCE
+    ========================================================= */
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+
+      gap: 8px;
+    }
+
+
+    .experience-item {
+      display: grid;
+
+      grid-template-columns:
+        34px 1fr;
+
+      gap: 11px;
+
+      padding: 13px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      background: var(--surface);
+
+      transition:
+        background var(--transition),
+        border-color var(--transition);
+    }
+
+
+    .experience-item:hover {
+      background: var(--surface-hover);
+
+      border-color: var(--border-strong);
+    }
+
+
+    .experience-icon {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background:
+        rgba(255,255,255,.055);
+
+      color: var(--text-secondary);
+
+      font-size: 12px;
+    }
+
+
+    .experience-role {
+      color: var(--text);
+
+      font-size: 12px;
+
+      line-height: 1.35;
+
+      font-weight: 650;
+    }
+
+
+    .experience-company {
+      color: var(--text-muted);
+
+      font-size: 10px;
+
+      line-height: 1.45;
+
+      margin-top: 3px;
+    }
+
+
+    /* =========================================================
+       SKILLS
+    ========================================================= */
+
+    .skills {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 6px;
+    }
+
+
+    .skill {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 7px 10px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 8px;
+
+      background: var(--surface);
+
+      color: var(--text-secondary);
+
+      font-size: 10px;
+
+      font-weight: 550;
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+    }
+
+
+    .skill:hover {
+      background: var(--surface-hover);
+
+      color: var(--text);
+
+      border-color: var(--border-strong);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .footer {
+      margin-top: 28px;
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid var(--border);
+
+      text-align: center;
+    }
+
+
+    .footer-brand {
+      color: var(--text-secondary);
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      margin-bottom: 5px;
+    }
+
+
+    .footer-copy {
+      color: var(--text-muted);
+
+      font-size: 9px;
+    }
+
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: max(20px, env(safe-area-inset-bottom));
+
+      transform:
+        translate(-50%, 80px);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 11px 17px;
+
+      border:
+        1px solid var(--border-strong);
+
+      border-radius: 999px;
+
+      background:
+        rgba(20,20,22,.92);
+
+      color: #fff;
+
+      font-size: 11px;
+
+      font-weight: 650;
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.3);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      transition:
+        opacity .25s ease,
+        transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    body.light-mode .toast {
+      background:
+        rgba(255,255,255,.94);
+
+      color: #18181b;
+    }
+
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 480px) {
+
+      body {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .card-wrapper {
+        border-radius: 27px;
+      }
+
+      .card-content {
+        padding: 22px 18px;
+      }
+
+      .top-bar {
+        margin-bottom: 27px;
+      }
+
+      .avatar-wrapper {
+        width: 88px;
+        height: 88px;
+      }
+
+      .name {
+        font-size: 25px;
+      }
+
+      .headline {
+        font-size: 13px;
+      }
+
+      .main-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        min-height: 49px;
+      }
+
+      .expertise-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 360px) {
+
+      .social-bar {
+        gap: 3px;
+      }
+
+      .social-link span {
+        font-size: 9px;
+      }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
+
+
 <body>
 
-<div class="kartvizit">
-  <img class="profil-resmi" src="/profil.jpg" alt="Tuncay Yıldırım">
-  <h1>Tuncay YILDIRIM</h1>
-  <p>Modern web uygulamaları, grafik tasarım, veri filtreleme ve geliştirme sistemleri.</p>
-  
-  <div>
-    <a href="mailto:tuncyyldrm@gmail.com" class="ikon"><i class="fas fa-envelope"></i></a>
-    <a href="tel:05312084897" class="ikon"><i class="fas fa-phone"></i></a>
-    <a href="https://wa.me/905312084897" class="ikon"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://facebook.com/tuncay0yildirim" class="ikon"><i class="fab fa-facebook"></i></a>
-    <a href="https://instagram.com/tuncay0yildirim" class="ikon"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/tuncay0yildirim" class="ikon"><i class="fa-brands fa-x-twitter"></i></a>
+  <div class="background-glow"></div>
+
+
+  <main class="card-wrapper">
+
+    <div class="card-content">
+
+      <!-- =====================================================
+           TOP BAR
+      ====================================================== -->
+
+      <header class="top-bar">
+
+        <div class="availability">
+          <span class="availability-dot"></span>
+          Projelere Açık
+        </div>
+
+
+        <div class="top-actions">
+
+          <button
+            class="icon-button"
+            id="shareBtn"
+            type="button"
+            aria-label="Kartviziti paylaş"
+            title="Paylaş"
+          >
+            <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          </button>
+
+
+          <button
+            class="icon-button"
+            id="themeBtn"
+            type="button"
+            aria-label="Temayı değiştir"
+            title="Tema değiştir"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =====================================================
+           PROFILE
+      ====================================================== -->
+
+      <section class="profile">
+
+        <div class="avatar-wrapper">
+
+          <img
+            src="profil.jpg"
+            alt="Tuncay Yıldırım"
+            class="avatar"
+            loading="eager"
+            decoding="async"
+            onerror="
+              this.onerror=null;
+              this.src='https://ui-avatars.com/api/?name=Tuncay+Yildirim&background=18181b&color=fff&size=256';
+            "
+          >
+
+        </div>
+
+
+        <h1 class="name">
+          Tuncay Yıldırım
+        </h1>
+
+
+        <p class="headline">
+          Bilgisayar Programcısı
+          <span aria-hidden="true">·</span>
+          Yazılım Destek Uzmanı
+        </p>
+
+
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          Isparta, Türkiye
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           INTRO
+      ====================================================== -->
+
+      <p class="intro">
+        İş süreçlerini teknolojiyle sadeleştiren;
+        SQL, ERP, B2B ve web tabanlı otomasyon sistemleri
+        üzerine çalışan teknik uzman.
+      </p>
+
+
+      <!-- =====================================================
+           PRIMARY ACTIONS
+      ====================================================== -->
+
+      <section class="main-actions">
+
+        <a
+          href="mailto:tuncyyldrm@gmail.com"
+          class="btn btn-primary"
+        >
+          <i class="fa-solid fa-envelope"></i>
+          E-posta Gönder
+        </a>
+
+
+        <a
+          href="https://wa.me/905312084897"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp
+        </a>
+
+      </section>
+
+
+      <!-- =====================================================
+           SAVE CONTACT
+      ====================================================== -->
+
+      <button
+        class="save-contact"
+        id="saveContactBtn"
+        type="button"
+      >
+        <i class="fa-regular fa-address-card"></i>
+        Kişilerime Ekle
+      </button>
+
+
+      <!-- =====================================================
+           SOCIAL / CONTACT
+      ====================================================== -->
+
+      <nav
+        class="social-bar"
+        aria-label="İletişim bağlantıları"
+      >
+
+        <a
+          href="tel:+905312084897"
+          class="social-link"
+          aria-label="Tuncay Yıldırım'ı ara"
+        >
+          <i class="fa-solid fa-phone"></i>
+          <span>Ara</span>
+        </a>
+
+
+        <a
+          href="mailto:tuncyyldrm@gmail.com"
+          class="social-link"
+          aria-label="E-posta gönder"
+        >
+          <i class="fa-solid fa-at"></i>
+          <span>Mail</span>
+        </a>
+
+
+        <a
+          href="https://instagram.com/tuncay0yildirim"
+          class="social-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram profilini aç"
+        >
+          <i class="fa-brands fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+
+
+        <!-- LinkedIn profil URL'sini gerçek profilinle değiştir -->
+        <a
+          href="https://www.linkedin.com/"
+          class="social-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profilini aç"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+          <span>LinkedIn</span>
+        </a>
+
+      </nav>
+
+
+      <!-- =====================================================
+           EXPERTISE
+      ====================================================== -->
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+            Uzmanlık Alanları
+          </div>
+
+          <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="expertise-grid">
+
+          <article class="expertise-item">
+
+            <div class="expertise-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+
+            <div class="expertise-name">
+              SQL & Veri
+            </div>
+
+            <div class="expertise-description">
+              SQL Server, sorgular, veri yönetimi ve optimizasyon.
+            </div>
+
+          </article>
+
+
+          <article class="expertise-item">
+
+            <div class="expertise-icon">
+              <i class="fa-solid fa-gears"></i>
+            </div>
+
+            <div class="expertise-name">
+              ERP & Otomasyon
+            </div>
+
+            <div class="expertise-description">
+              ERP destek, iş akışları ve operasyonel otomasyon.
+            </div>
+
+          </article>
+
+
+          <article class="expertise-item">
+
+            <div class="expertise-icon">
+              <i class="fa-solid fa-code"></i>
+            </div>
+
+            <div class="expertise-name">
+              Web Sistemleri
+            </div>
+
+            <div class="expertise-description">
+              Modern web uygulamaları, B2B ve API tabanlı sistemler.
+            </div>
+
+          </article>
+
+
+          <article class="expertise-item">
+
+            <div class="expertise-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <div class="expertise-name">
+              Teknik Destek
+            </div>
+
+            <div class="expertise-description">
+              Canlı sistemlerde hata analizi, destek ve çözüm üretimi.
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           EXPERIENCE
+      ====================================================== -->
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+            Deneyim
+          </div>
+
+          <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="experience-list">
+
+          <article class="experience-item">
+
+            <div class="experience-icon">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+
+            <div>
+
+              <div class="experience-role">
+                Yazılım Teknik Destek Personeli
+              </div>
+
+              <div class="experience-company">
+                Zensoft Yazılım · Canlı Ortam & SQL Yönetimi
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="experience-item">
+
+            <div class="experience-icon">
+              <i class="fa-solid fa-car"></i>
+            </div>
+
+            <div>
+
+              <div class="experience-role">
+                Bilgi İşlem & B2B Otomasyon Uzmanı
+              </div>
+
+              <div class="experience-company">
+                Yiğit Otomotiv · Stok Entegrasyon & Web Sistemleri
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           TECHNOLOGIES
+      ====================================================== -->
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="section-title">
+            Teknolojiler
+          </div>
+
+          <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="skills">
+
+          <span class="skill">MS SQL Server</span>
+
+          <span class="skill">Next.js</span>
+
+          <span class="skill">React</span>
+
+          <span class="skill">Node.js</span>
+
+          <span class="skill">PHP</span>
+
+          <span class="skill">Supabase</span>
+
+          <span class="skill">REST API</span>
+
+          <span class="skill">ERP</span>
+
+          <span class="skill">B2B</span>
+
+          <span class="skill">Web Automation</span>
+
+          <span class="skill">Barkod Sistemleri</span>
+
+          <span class="skill">3D Baskı</span>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           FOOTER
+      ====================================================== -->
+
+      <footer class="footer">
+
+        <div class="footer-brand">
+          Tuncay Yıldırım
+        </div>
+
+        <div class="footer-copy">
+          © <span id="year"></span>
+          · Digital Business Card
+        </div>
+
+      </footer>
+
+    </div>
+
+  </main>
+
+
+  <!-- =======================================================
+       TOAST
+  ======================================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  >
+    <i class="fa-solid fa-check"></i>
+    <span id="toastText">Tamamlandı</span>
   </div>
 
-<div class="yetenekler">
-  <p>
-    <span class="etiket uzmanlik">HTML</span>
-    <span class="etiket uzmanlik">CSS</span>
-    <span class="etiket uzmanlik">JavaScript</span>
-    <span class="etiket uzmanlik">Google Apps Script</span>
-    <span class="etiket uzmanlik">Node.js</span>
-    <span class="etiket uzmanlik">PHP</span>
-    <span class="etiket uzmanlik">MySQL</span>
-    <span class="etiket uzmanlik">SQL</span>
-    <span class="etiket uzmanlik">Google Sheets</span>
-    <span class="etiket uzmanlik">GitHub</span>
-  </p>
-  <!-- Ekstra Beceriler: Tasarım & SEO & İçerik -->
-  <p>
-    <span class="etiket ekstra">Photoshop</span>
-    <span class="etiket ekstra">Illustrator</span>
-    <span class="etiket ekstra">Grafik Tasarım</span>
-    <span class="etiket ekstra">SEO</span>
-    <span class="etiket ekstra">Blogger</span>
-    <span class="etiket ekstra">3D Modelleme</span>
-  </p>
-</div>
-</div>
+
+  <script>
+    /* =========================================================
+       CONFIG
+    ========================================================= */
+
+    const CONTACT = {
+      firstName: "Tuncay",
+      lastName: "Yıldırım",
+      fullName: "Tuncay Yıldırım",
+
+      title:
+        "Bilgisayar Programcısı & Yazılım Destek Uzmanı",
+
+      phone:
+        "+905312084897",
+
+      phoneDisplay:
+        "+90 531 208 48 97",
+
+      email:
+        "tuncyyldrm@gmail.com",
+
+      city:
+        "Isparta",
+
+      country:
+        "Türkiye",
+
+      website:
+        "https://tuncyyldrm.vercel.app/"
+    };
+
+
+    /* =========================================================
+       ELEMENTS
+    ========================================================= */
+
+    const body =
+      document.body;
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+    const themeIcon =
+      themeBtn.querySelector("i");
+
+    const shareBtn =
+      document.getElementById("shareBtn");
+
+    const saveContactBtn =
+      document.getElementById("saveContactBtn");
+
+    const toast =
+      document.getElementById("toast");
+
+    const toastText =
+      document.getElementById("toastText");
+
+    const year =
+      document.getElementById("year");
+
+
+    /* =========================================================
+       YEAR
+    ========================================================= */
+
+    year.textContent =
+      new Date().getFullYear();
+
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    let toastTimer = null;
+
+
+    function showToast(message) {
+
+      toastText.textContent =
+        message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer =
+        setTimeout(() => {
+
+          toast.classList.remove("show");
+
+        }, 2200);
+    }
+
+
+    /* =========================================================
+       THEME
+    ========================================================= */
+
+    function applyTheme(theme) {
+
+      const isLight =
+        theme === "light";
+
+      body.classList.toggle(
+        "light-mode",
+        isLight
+      );
+
+      themeIcon.className =
+        isLight
+          ? "fa-solid fa-sun"
+          : "fa-solid fa-moon";
+
+      themeBtn.setAttribute(
+        "aria-label",
+        isLight
+          ? "Koyu temaya geç"
+          : "Açık temaya geç"
+      );
+
+      themeBtn.setAttribute(
+        "title",
+        isLight
+          ? "Koyu tema"
+          : "Açık tema"
+      );
+    }
+
+
+    function getPreferredTheme() {
+
+      const saved =
+        localStorage.getItem(
+          "tuncay-theme"
+        );
+
+      if (saved === "light" ||
+          saved === "dark") {
+
+        return saved;
+      }
+
+      return window.matchMedia(
+        "(prefers-color-scheme: light)"
+      ).matches
+        ? "light"
+        : "dark";
+    }
+
+
+    applyTheme(
+      getPreferredTheme()
+    );
+
+
+    themeBtn.addEventListener(
+      "click",
+      () => {
+
+        const nextTheme =
+          body.classList.contains("light-mode")
+            ? "dark"
+            : "light";
+
+        localStorage.setItem(
+          "tuncay-theme",
+          nextTheme
+        );
+
+        applyTheme(nextTheme);
+
+      }
+    );
+
+
+    /* =========================================================
+       SHARE
+    ========================================================= */
+
+    shareBtn.addEventListener(
+      "click",
+      async () => {
+
+        const shareData = {
+
+          title:
+            "Tuncay Yıldırım — Dijital Kartvizit",
+
+          text:
+            "Bilgisayar Programcısı & Yazılım Destek Uzmanı",
+
+          url:
+            window.location.href
+        };
+
+
+        if (
+          navigator.share &&
+          typeof navigator.share === "function"
+        ) {
+
+          try {
+
+            await navigator.share(
+              shareData
+            );
+
+          } catch (error) {
+
+            /*
+              Kullanıcı paylaşım ekranını
+              kapattığında hata gösterme.
+            */
+
+          }
+
+          return;
+        }
+
+
+        try {
+
+          await navigator.clipboard.writeText(
+            window.location.href
+          );
+
+          showToast(
+            "Kartvizit bağlantısı kopyalandı"
+          );
+
+        } catch (error) {
+
+          fallbackCopy(
+            window.location.href
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       COPY FALLBACK
+    ========================================================= */
+
+    function fallbackCopy(text) {
+
+      const textarea =
+        document.createElement("textarea");
+
+      textarea.value =
+        text;
+
+      textarea.style.position =
+        "fixed";
+
+      textarea.style.opacity =
+        "0";
+
+      document.body.appendChild(
+        textarea
+      );
+
+      textarea.select();
+
+      try {
+
+        document.execCommand(
+          "copy"
+        );
+
+        showToast(
+          "Bağlantı kopyalandı"
+        );
+
+      } catch (error) {
+
+        showToast(
+          "Bağlantı kopyalanamadı"
+        );
+
+      }
+
+      textarea.remove();
+    }
+
+
+    /* =========================================================
+       VCARD
+    ========================================================= */
+
+    saveContactBtn.addEventListener(
+      "click",
+      () => {
+
+        const vCard = [
+          "BEGIN:VCARD",
+          "VERSION:3.0",
+          `N:${CONTACT.lastName};${CONTACT.firstName};;;`,
+          `FN:${CONTACT.fullName}`,
+          `ORG:${CONTACT.fullName}`,
+          `TITLE:${CONTACT.title}`,
+          `TEL;TYPE=CELL:${CONTACT.phone}`,
+          `EMAIL;TYPE=INTERNET:${CONTACT.email}`,
+          `ADR;TYPE=WORK:;;${CONTACT.city};;;${CONTACT.country}`,
+          `URL:${CONTACT.website}`,
+          "END:VCARD"
+        ].join("\r\n");
+
+
+        const blob =
+          new Blob(
+            [vCard],
+            {
+              type:
+                "text/vcard;charset=utf-8"
+            }
+          );
+
+
+        const url =
+          URL.createObjectURL(
+            blob
+          );
+
+
+        const link =
+          document.createElement("a");
+
+        link.href =
+          url;
+
+        link.download =
+          "Tuncay-Yildirim.vcf";
+
+
+        document.body.appendChild(
+          link
+        );
+
+        link.click();
+
+        link.remove();
+
+
+        setTimeout(() => {
+
+          URL.revokeObjectURL(
+            url
+          );
+
+        }, 1000);
+
+
+        showToast(
+          "Kişi kartı hazırlanıyor"
+        );
+      }
+    );
+
+
+    /* =========================================================
+       EXTERNAL LINK SECURITY
+    ========================================================= */
+
+    document
+      .querySelectorAll(
+        'a[target="_blank"]'
+      )
+      .forEach(link => {
+
+        link.setAttribute(
+          "rel",
+          "noopener noreferrer"
+        );
+
+      });
+
+
+    /* =========================================================
+       KEYBOARD ACCESSIBILITY
+    ========================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          toast.classList.contains("show")
+        ) {
+
+          toast.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       PAGE VISIBILITY
+    ========================================================= */
+
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+
+        if (
+          document.visibilityState ===
+          "visible"
+        ) {
+
+          year.textContent =
+            new Date().getFullYear();
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
-
-
-
-
