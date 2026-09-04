@@ -4043,128 +4043,71 @@ function fallbackCopy(text) {
 
 
 /* =========================================================
-   VCARD
+   VCARD & REHBERE EKLE
 ========================================================= */
 
 function escapeVCard(value) {
-
   return String(value)
-    .replace(
-      /\\/g,
-      "\\\\"
-    )
-    .replace(
-      /;/g,
-      "\\;"
-    )
-    .replace(
-      /,/g,
-      "\\,"
-    )
-    .replace(
-      /\n/g,
-      "\\n"
-    );
-
+    .replace(/\\/g, "\\\\")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,")
+    .replace(/\n/g, "\\n");
 }
 
+saveContactBtn.addEventListener("click", async () => {
+  const vCard = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    `N:${escapeVCard(CONTACT.lastName)};${escapeVCard(CONTACT.firstName)};;;`,
+    `FN:${escapeVCard(CONTACT.fullName)}`,
+    `TITLE:${escapeVCard(CONTACT.title)}`,
+    `TEL;TYPE=CELL:${CONTACT.phone}`,
+    `EMAIL;TYPE=INTERNET:${CONTACT.email}`,
+    `ADR;TYPE=WORK:;;${escapeVCard(CONTACT.city)};;;${escapeVCard(CONTACT.country)}`,
+    `URL:${CONTACT.website}`,
+    `X-SOCIALPROFILE;TYPE=github:${CONTACT.github}`,
+    `X-SOCIALPROFILE;TYPE=linkedin:${CONTACT.linkedin}`,
+    `X-SOCIALPROFILE;TYPE=instagram:${CONTACT.instagram}`,
+    "END:VCARD"
+  ].join("\r\n");
 
-saveContactBtn.addEventListener(
-  "click",
-  () => {
+  const fileName = "Tuncay-Yildirim.vcf";
+  const vcardBlob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
 
-    const vCard = [
-
-      "BEGIN:VCARD",
-
-      "VERSION:3.0",
-
-      `N:${escapeVCard(CONTACT.lastName)};${escapeVCard(CONTACT.firstName)};;;`,
-
-      `FN:${escapeVCard(CONTACT.fullName)}`,
-
-      `TITLE:${escapeVCard(CONTACT.title)}`,
-
-      `TEL;TYPE=CELL:${CONTACT.phone}`,
-
-      `EMAIL;TYPE=INTERNET:${CONTACT.email}`,
-
-      `ADR;TYPE=WORK:;;${escapeVCard(CONTACT.city)};;;${escapeVCard(CONTACT.country)}`,
-
-      `URL:${CONTACT.website}`,
-
-      `X-SOCIALPROFILE;TYPE=github:${CONTACT.github}`,
-
-      `X-SOCIALPROFILE;TYPE=linkedin:${CONTACT.linkedin}`,
-
-      `X-SOCIALPROFILE;TYPE=instagram:${CONTACT.instagram}`,
-
-      "END:VCARD"
-
-    ].join(
-      "\r\n"
-    );
-
-
-    const blob =
-      new Blob(
-        [vCard],
-        {
-          type:
-            "text/vcard;charset=utf-8"
-        }
-      );
-
-
-    const url =
-      URL.createObjectURL(
-        blob
-      );
-
-
-    const link =
-      document.createElement(
-        "a"
-      );
-
-
-    link.href =
-      url;
-
-
-    link.download =
-      "Tuncay-Yildirim.vcf";
-
-
-    document.body.appendChild(
-      link
-    );
-
-
-    link.click();
-
-
-    link.remove();
-
-
-    setTimeout(
-      () => {
-
-        URL.revokeObjectURL(
-          url
-        );
-
-      },
-      1000
-    );
-
-
-    showToast(
-      "Kişi kartı hazırlanıyor"
-    );
-
+  // 1. Yöntem: Web Share API ile doğrudan Kişiler/Rehber uygulamasını tetikleme
+  const file = new File([vcardBlob], fileName, { type: "text/vcard" });
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try {
+      await navigator.share({
+        files: [file],
+        title: CONTACT.fullName
+      });
+      return;
+    } catch (err) {
+      if (err.name === "AbortError") return; // Kullanıcı iptal etti
+    }
   }
-);
+
+  // 2. Yöntem: iOS Safari için doğrudan Kişiler önizlemesi
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  if (isIOS) {
+    window.location.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`;
+    showToast("Kişi kartı açılıyor");
+    return;
+  }
+
+  // 3. Fallback: Masaüstü ve desteklemeyen eski tarayıcılar için indirme
+  const url = URL.createObjectURL(vcardBlob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  showToast("Kişi kartı indirildi");
+});
 
 
 /* =========================================================
