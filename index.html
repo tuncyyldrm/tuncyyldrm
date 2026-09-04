@@ -2595,27 +2595,12 @@ body.light-mode .toast {
   </a>
 
 
-<!-- ESKİ HALİ:
-<button
-  class="quick-btn"
-  id="saveContactBtn"
-  type="button"
->
-  ...
-</button>
--->
-
-<!-- YENİ HALİ: -->
 <a
   class="quick-btn"
   id="saveContactBtn"
-  role="button"
   href="#"
 >
-  <i
-    class="fa-regular fa-address-card"
-    aria-hidden="true"
-  ></i>
+  <i class="fa-regular fa-address-card" aria-hidden="true"></i>
   Kişilere Ekle
 </a>
 
@@ -4051,77 +4036,64 @@ function fallbackCopy(text) {
 }
 
 /* =========================================================
-   VCARD & DOĞRUDAN REHBER BAĞLANTISI
+   DOĞRUDAN REHBER AÇMA SİSTEMİ (DOSYA İNDİRMEZ)
 ========================================================= */
 
-function escapeVCard(value) {
-  return String(value)
-    .replace(/\\/g, "\\\\")
-    .replace(/;/g, "\\;")
-    .replace(/,/g, "\\,")
-    .replace(/\n/g, "\\n");
-}
+(function setupDirectContact() {
+  const btn = document.getElementById("saveContactBtn");
+  if (!btn) return;
 
-(function initContactAction() {
-  const saveBtn = document.getElementById("saveContactBtn");
-  if (!saveBtn) return;
-
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const ua = navigator.userAgent || "";
   const isAndroid = /android/i.test(ua);
   const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
 
-  // vCard Formatı (iOS ve Masaüstü için)
-  const vCard = [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    `N:${escapeVCard(CONTACT.lastName)};${escapeVCard(CONTACT.firstName)};;;`,
-    `FN:${escapeVCard(CONTACT.fullName)}`,
-    `TITLE:${escapeVCard(CONTACT.title)}`,
-    `TEL;TYPE=CELL:${CONTACT.phone}`,
-    `EMAIL;TYPE=INTERNET:${CONTACT.email}`,
-    `ADR;TYPE=WORK:;;${escapeVCard(CONTACT.city)};;;${escapeVCard(CONTACT.country)}`,
-    `URL:${CONTACT.website}`,
-    `X-SOCIALPROFILE;TYPE=github:${CONTACT.github}`,
-    `X-SOCIALPROFILE;TYPE=linkedin:${CONTACT.linkedin}`,
-    `X-SOCIALPROFILE;TYPE=instagram:${CONTACT.instagram}`,
-    "END:VCARD"
-  ].join("\r\n");
-
+  // 1. ANDROID: Dosya indirmez, doğrudan işletim sisteminin "Yeni Kişi" ekranını açar
   if (isAndroid) {
-    // Android için saf Native Intent URI (Doğrudan href içine yazılır, JS yönlendirmesi yapmaz)
-    const intentUrl =
-      `intent:#Intent;` +
-      `action=android.intent.action.INSERT;` +
-      `type=vnd.android.cursor.dir/contact;` +
+    // Android Contact Manager Intent şeması
+    const intentUri = 
+      "intent:#Intent;" +
+      "action=android.intent.action.INSERT;" +
+      "type=vnd.android.cursor.dir/contact;" +
       `S.name=${encodeURIComponent(CONTACT.fullName)};` +
       `S.phone=${encodeURIComponent(CONTACT.phone)};` +
       `S.email=${encodeURIComponent(CONTACT.email)};` +
       `S.postal=${encodeURIComponent(CONTACT.city + ", " + CONTACT.country)};` +
-      `S.job_title=${encodeURIComponent(CONTACT.title)};` +
-      `S.notes=${encodeURIComponent(CONTACT.website)};` +
-      `end;`;
+      `S.company=${encodeURIComponent(CONTACT.title)};` +
+      "end";
 
-    saveBtn.setAttribute("href", intentUrl);
+    btn.href = intentUri;
     return;
   }
+
+  // 2. IOS (IPHONE): data URI ile doğrudan Kişiler kart önizlemesini açar
+  const vcard = 
+    "BEGIN:VCARD\r\n" +
+    "VERSION:3.0\r\n" +
+    `FN:${CONTACT.fullName}\r\n` +
+    `N:${CONTACT.lastName};${CONTACT.firstName};;;\r\n` +
+    `TEL;TYPE=CELL:${CONTACT.phone}\r\n` +
+    `EMAIL;TYPE=INTERNET:${CONTACT.email}\r\n` +
+    `TITLE:${CONTACT.title}\r\n` +
+    `ADR;TYPE=WORK:;;${CONTACT.city};;;${CONTACT.country}\r\n` +
+    `URL:${CONTACT.website}\r\n` +
+    "END:VCARD";
 
   if (isIOS) {
-    // iOS Safari için Data URI
-    saveBtn.setAttribute("href", `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`);
+    btn.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcard);
     return;
   }
 
-  // Masaüstü Fallback: Tıklama ile .vcf indirme
-  saveBtn.addEventListener("click", (e) => {
+  // 3. MASAÜSTÜ: Bilgisayarda tıklanırsa standart vCard indirmesi yapar
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
-    const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
+    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
     const url = URL.createObjectURL(blob);
-    const tempLink = document.createElement("a");
-    tempLink.href = url;
-    tempLink.download = "Tuncay-Yildirim.vcf";
-    document.body.appendChild(tempLink);
-    tempLink.click();
-    tempLink.remove();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${CONTACT.firstName}-${CONTACT.lastName}.vcf`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
 })();
@@ -4205,6 +4177,30 @@ mediaQuery.addEventListener(
 );
 
 </script>
+<!-- REHBER / QR MODAL (Scriptten sonra olsa bile DOMContentLoaded ile sorunsuz çalışır) -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:99999; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(12px);">
+  <div style="background:#18181b; border:1px solid rgba(255,255,255,0.15); border-radius:24px; padding:24px; max-width:320px; width:100%; text-align:center; color:#fff; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+    <h3 style="font-size:16px; margin-bottom:8px; font-weight:700;">Rehbere Kaydet</h3>
+    <p style="font-size:11px; color:#a1a1aa; margin-bottom:16px; line-height:1.5;">
+      Uygulama içi tarayıcı kısıtlaması nedeniyle aşağıdaki QR kodu kamerayla taratabilir veya kartı indirebilirsiniz.
+    </p>
+    
+    <div id="vcardQrContainer" style="display:inline-block; padding:12px; background:#fff; border-radius:16px; margin-bottom:16px;">
+      <img id="vcardQrImg" src="" alt="Rehbere Ekle QR" style="display:block; width:160px; height:160px;">
+    </div>
 
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <a id="openExternalBtn" href="#" style="display:none; background:#2563eb; color:#fff; padding:12px; border-radius:12px; font-size:11px; font-weight:650; text-decoration:none;">
+        Tarayıcıda Aç (Chrome)
+      </a>
+      <a id="directVcfLink" href="#" style="background:#ffffff; color:#09090b; padding:12px; border-radius:12px; font-size:11px; font-weight:700; text-decoration:none;">
+        Kişi Kartını İndir (.vcf)
+      </a>
+      <button id="closeContactModal" type="button" style="background:transparent; border:1px solid rgba(255,255,255,0.15); color:#a1a1aa; padding:10px; border-radius:12px; font-size:11px; cursor:pointer;">
+        Kapat
+      </button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
