@@ -4043,7 +4043,7 @@ function fallbackCopy(text) {
 
 
 /* =========================================================
-   VCARD & REHBERE EKLE
+   VCARD & DOĞRUDAN REHBERE EKLE
 ========================================================= */
 
 function escapeVCard(value) {
@@ -4054,7 +4054,30 @@ function escapeVCard(value) {
     .replace(/\n/g, "\\n");
 }
 
-saveContactBtn.addEventListener("click", async () => {
+saveContactBtn.addEventListener("click", () => {
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const isAndroid = /android/i.test(ua);
+  const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+
+  // 1. Android: İndirme yapmadan doğrudan yerel Rehber uygulamasını açar
+  if (isAndroid) {
+    const androidIntent =
+      `intent:#Intent;` +
+      `action=android.intent.action.INSERT;` +
+      `type=vnd.android.cursor.dir/contact;` +
+      `S.name=${encodeURIComponent(CONTACT.fullName)};` +
+      `S.phone=${encodeURIComponent(CONTACT.phone)};` +
+      `S.email=${encodeURIComponent(CONTACT.email)};` +
+      `S.postal=${encodeURIComponent(CONTACT.city + ", " + CONTACT.country)};` +
+      `S.job_title=${encodeURIComponent(CONTACT.title)};` +
+      `S.notes=${encodeURIComponent(CONTACT.website)};` +
+      `end;`;
+
+    window.location.href = androidIntent;
+    return;
+  }
+
+  // Ham vCard İçeriği
   const vCard = [
     "BEGIN:VCARD",
     "VERSION:3.0",
@@ -4071,42 +4094,23 @@ saveContactBtn.addEventListener("click", async () => {
     "END:VCARD"
   ].join("\r\n");
 
-  const fileName = "Tuncay-Yildirim.vcf";
-  const vcardBlob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
-
-  // 1. Yöntem: Web Share API ile doğrudan Kişiler/Rehber uygulamasını tetikleme
-  const file = new File([vcardBlob], fileName, { type: "text/vcard" });
-  if (navigator.canShare && navigator.canShare({ files: [file] })) {
-    try {
-      await navigator.share({
-        files: [file],
-        title: CONTACT.fullName
-      });
-      return;
-    } catch (err) {
-      if (err.name === "AbortError") return; // Kullanıcı iptal etti
-    }
-  }
-
-  // 2. Yöntem: iOS Safari için doğrudan Kişiler önizlemesi
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  // 2. iOS (iPhone/iPad): Dosya indirmeden doğrudan Kişi Ekleme ekranını açar
   if (isIOS) {
     window.location.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`;
-    showToast("Kişi kartı açılıyor");
     return;
   }
 
-  // 3. Fallback: Masaüstü ve desteklemeyen eski tarayıcılar için indirme
-  const url = URL.createObjectURL(vcardBlob);
+  // 3. Masaüstü Fallback: Bilgisayarda Outlook / Rehber için dosyayı indirir
+  const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = fileName;
+  link.download = "Tuncay-Yildirim.vcf";
   document.body.appendChild(link);
   link.click();
   link.remove();
 
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  showToast("Kişi kartı indirildi");
 });
 
 
