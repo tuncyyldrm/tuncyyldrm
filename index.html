@@ -2595,14 +2595,14 @@ body.light-mode .toast {
   </a>
 
 
-<a
+<button
   class="quick-btn"
   id="saveContactBtn"
-  href="#"
+  type="button"
 >
   <i class="fa-regular fa-address-card" aria-hidden="true"></i>
   Kişilere Ekle
-</a>
+</button>
 
 </div>
 
@@ -4036,67 +4036,60 @@ function fallbackCopy(text) {
 }
 
 /* =========================================================
-   DOĞRUDAN REHBER AÇMA SİSTEMİ (DOSYA İNDİRMEZ)
+   GÜVENLİ DOĞRUDAN REHBER EKLEME (KİLİTLENMEZ)
 ========================================================= */
 
-(function setupDirectContact() {
-  const btn = document.getElementById("saveContactBtn");
-  if (!btn) return;
+document.getElementById("saveContactBtn")?.addEventListener("click", async () => {
+  const vCardData = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    `FN:${CONTACT.fullName}`,
+    `N:${CONTACT.lastName};${CONTACT.firstName};;;`,
+    `TEL;TYPE=CELL:${CONTACT.phone}`,
+    `EMAIL;TYPE=INTERNET:${CONTACT.email}`,
+    `TITLE:${CONTACT.title}`,
+    `ADR;TYPE=WORK:;;${CONTACT.city};;;${CONTACT.country}`,
+    `URL:${CONTACT.website}`,
+    "END:VCARD"
+  ].join("\r\n");
 
   const ua = navigator.userAgent || "";
-  const isAndroid = /android/i.test(ua);
   const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
 
-  // 1. ANDROID: Dosya indirmez, doğrudan işletim sisteminin "Yeni Kişi" ekranını açar
-  if (isAndroid) {
-    // Android Contact Manager Intent şeması
-    const intentUri = 
-      "intent:#Intent;" +
-      "action=android.intent.action.INSERT;" +
-      "type=vnd.android.cursor.dir/contact;" +
-      `S.name=${encodeURIComponent(CONTACT.fullName)};` +
-      `S.phone=${encodeURIComponent(CONTACT.phone)};` +
-      `S.email=${encodeURIComponent(CONTACT.email)};` +
-      `S.postal=${encodeURIComponent(CONTACT.city + ", " + CONTACT.country)};` +
-      `S.company=${encodeURIComponent(CONTACT.title)};` +
-      "end";
-
-    btn.href = intentUri;
-    return;
-  }
-
-  // 2. IOS (IPHONE): data URI ile doğrudan Kişiler kart önizlemesini açar
-  const vcard = 
-    "BEGIN:VCARD\r\n" +
-    "VERSION:3.0\r\n" +
-    `FN:${CONTACT.fullName}\r\n` +
-    `N:${CONTACT.lastName};${CONTACT.firstName};;;\r\n` +
-    `TEL;TYPE=CELL:${CONTACT.phone}\r\n` +
-    `EMAIL;TYPE=INTERNET:${CONTACT.email}\r\n` +
-    `TITLE:${CONTACT.title}\r\n` +
-    `ADR;TYPE=WORK:;;${CONTACT.city};;;${CONTACT.country}\r\n` +
-    `URL:${CONTACT.website}\r\n` +
-    "END:VCARD";
-
+  // 1. iOS (Safari): Dosya indirmez, doğrudan yerel Kişiler önizleme kartını açar
   if (isIOS) {
-    btn.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcard);
+    window.location.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
     return;
   }
 
-  // 3. MASAÜSTÜ: Bilgisayarda tıklanırsa standart vCard indirmesi yapar
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${CONTACT.firstName}-${CONTACT.lastName}.vcf`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  // 2. Android (Chrome & WebView): Tarayıcıyı kilitlemeden doğrudan Sistem Paylaşım / Rehber menüsünü tetikler
+  const file = new File([vCardData], `${CONTACT.firstName}_${CONTACT.lastName}.vcf`, {
+    type: "text/x-vcard"
   });
-})();
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    try {
+      await navigator.share({
+        files: [file],
+        title: CONTACT.fullName
+      });
+      return;
+    } catch (err) {
+      if (err.name === "AbortError") return; // Kullanıcı iptal etti
+    }
+  }
+
+  // 3. Fallback (Masaüstü ve kısıtlı webview): Temiz indirme
+  const blob = new Blob([vCardData], { type: "text/vcard;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${CONTACT.firstName}-${CONTACT.lastName}.vcf`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
 
 /* =========================================================
    EXTERNAL LINK SECURITY
