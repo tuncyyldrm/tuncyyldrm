@@ -2595,20 +2595,29 @@ body.light-mode .toast {
   </a>
 
 
-  <button
-    class="quick-btn"
-    id="saveContactBtn"
-    type="button"
-  >
+<!-- ESKİ HALİ:
+<button
+  class="quick-btn"
+  id="saveContactBtn"
+  type="button"
+>
+  ...
+</button>
+-->
 
-    <i
-      class="fa-regular fa-address-card"
-      aria-hidden="true"
-    ></i>
-
-    Kişilere Ekle
-
-  </button>
+<!-- YENİ HALİ: -->
+<a
+  class="quick-btn"
+  id="saveContactBtn"
+  role="button"
+  href="#"
+>
+  <i
+    class="fa-regular fa-address-card"
+    aria-hidden="true"
+  ></i>
+  Kişilere Ekle
+</a>
 
 </div>
 
@@ -4041,9 +4050,8 @@ function fallbackCopy(text) {
 
 }
 
-
 /* =========================================================
-   VCARD & DOĞRUDAN REHBERE EKLE
+   VCARD & DOĞRUDAN REHBER BAĞLANTISI
 ========================================================= */
 
 function escapeVCard(value) {
@@ -4054,30 +4062,15 @@ function escapeVCard(value) {
     .replace(/\n/g, "\\n");
 }
 
-saveContactBtn.addEventListener("click", () => {
+(function initContactAction() {
+  const saveBtn = document.getElementById("saveContactBtn");
+  if (!saveBtn) return;
+
   const ua = navigator.userAgent || navigator.vendor || window.opera;
   const isAndroid = /android/i.test(ua);
   const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
 
-  // 1. Android: İndirme yapmadan doğrudan yerel Rehber uygulamasını açar
-  if (isAndroid) {
-    const androidIntent =
-      `intent:#Intent;` +
-      `action=android.intent.action.INSERT;` +
-      `type=vnd.android.cursor.dir/contact;` +
-      `S.name=${encodeURIComponent(CONTACT.fullName)};` +
-      `S.phone=${encodeURIComponent(CONTACT.phone)};` +
-      `S.email=${encodeURIComponent(CONTACT.email)};` +
-      `S.postal=${encodeURIComponent(CONTACT.city + ", " + CONTACT.country)};` +
-      `S.job_title=${encodeURIComponent(CONTACT.title)};` +
-      `S.notes=${encodeURIComponent(CONTACT.website)};` +
-      `end;`;
-
-    window.location.href = androidIntent;
-    return;
-  }
-
-  // Ham vCard İçeriği
+  // vCard Formatı (iOS ve Masaüstü için)
   const vCard = [
     "BEGIN:VCARD",
     "VERSION:3.0",
@@ -4094,25 +4087,44 @@ saveContactBtn.addEventListener("click", () => {
     "END:VCARD"
   ].join("\r\n");
 
-  // 2. iOS (iPhone/iPad): Dosya indirmeden doğrudan Kişi Ekleme ekranını açar
-  if (isIOS) {
-    window.location.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`;
+  if (isAndroid) {
+    // Android için saf Native Intent URI (Doğrudan href içine yazılır, JS yönlendirmesi yapmaz)
+    const intentUrl =
+      `intent:#Intent;` +
+      `action=android.intent.action.INSERT;` +
+      `type=vnd.android.cursor.dir/contact;` +
+      `S.name=${encodeURIComponent(CONTACT.fullName)};` +
+      `S.phone=${encodeURIComponent(CONTACT.phone)};` +
+      `S.email=${encodeURIComponent(CONTACT.email)};` +
+      `S.postal=${encodeURIComponent(CONTACT.city + ", " + CONTACT.country)};` +
+      `S.job_title=${encodeURIComponent(CONTACT.title)};` +
+      `S.notes=${encodeURIComponent(CONTACT.website)};` +
+      `end;`;
+
+    saveBtn.setAttribute("href", intentUrl);
     return;
   }
 
-  // 3. Masaüstü Fallback: Bilgisayarda Outlook / Rehber için dosyayı indirir
-  const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "Tuncay-Yildirim.vcf";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+  if (isIOS) {
+    // iOS Safari için Data URI
+    saveBtn.setAttribute("href", `data:text/vcard;charset=utf-8,${encodeURIComponent(vCard)}`);
+    return;
+  }
 
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-});
-
+  // Masaüstü Fallback: Tıklama ile .vcf indirme
+  saveBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const tempLink = document.createElement("a");
+    tempLink.href = url;
+    tempLink.download = "Tuncay-Yildirim.vcf";
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    tempLink.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+})();
 
 /* =========================================================
    EXTERNAL LINK SECURITY
